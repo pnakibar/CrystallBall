@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="effa8e58-c3db-4f72-a598-ac908778419e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/control/controleDescreverProblema$$anonfun$lineToListBufferFloat$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/control/controleDescreverProblema$$anonfun$printMatrix$1$$anonfun$apply$2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/control/controleDescreverProblema$$anonfun$printMatrix$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/control/controleDescreverProblema$$anonfun$salvarProblema$1$$anonfun$apply$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/control/controleDescreverProblema$$anonfun$salvarProblema$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/control/controleDescreverProblema$$anonfun$salvarProblema$2$$anonfun$apply$3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/control/controleDescreverProblema$$anonfun$salvarProblema$2.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/control/testing.sc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/control/testing.sc" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/control/control$$anonfun$salvarArquivo$1$$anonfun$apply$1.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/control/control$$anonfun$salvarArquivo$1.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/control/controleDescreverProblema$$anonfun$lineToListFloat$1$1.class" afterPath="" />
@@ -711,12 +719,12 @@
       <option name="number" value="Default" />
       <updated>1436578323183</updated>
       <workItem from="1436578326082" duration="4976000" />
-      <workItem from="1436584431712" duration="10079000" />
+      <workItem from="1436584431712" duration="10136000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15055000" />
+    <option name="totallyTimeSpent" value="15112000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
