@@ -25,11 +25,26 @@ object view {
     println("Digite uma opção e aperte enter...")
     val opt = StdIn.readInt()
     control.doSomething(opt)
+  }
 
-
-
-
-
+  def mathMode(): Unit = {
+    val menu =  "**********************************************************\n" +
+                "ESCOLHA A SUA RECOMENDAÇÃO DO DIA! –\n" +
+                "**********************************************************\n" +
+                "1 – Laplace\n" +
+                "2 – MaxMin\n" +
+                "3 – Savage\n" +
+                "4 - Hurwikz\n" +
+                "5 – Valor médio esperado\n" +
+                "6 – Perda da oportunidade esperada\n" +
+                "7 – Determinar valor da Informação Perfeita\n" +
+                "8 – Estimar de acordo com previsão de Consultoria\n" +
+                "9 – Retornar ao menu principal"
+                "**********************************************************"
+    println(menu)
+    println("Digite uma opção e aperte enter...")
+    val opt = StdIn.readInt()
+    control.doSomethingMath(opt)
   }
 
 }

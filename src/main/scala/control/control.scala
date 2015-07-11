@@ -15,10 +15,24 @@ object control {
       case 3 => salvarArquivo()
       case 4 => listarProblema()
       case 5 => alterarProblema()
-      case 6 => "undefined"
+      case 6 => returnMathMenu()
       case 7 => sys.exit(0)
     }
     returnMainMenu()
+  }
+  def doSomethingMath(option: Int) ={
+    option match {
+      case 1 => "undefined"
+      case 2 => "undefined"
+      case 3 => "undefined"
+      case 4 => "undefined"
+      case 5 => "undefined"
+      case 6 => "undefined"
+      case 7 => "undefined"
+      case 8 => "undefined"
+      case 9 => returnMainMenu()
+    }
+    returnMathMenu()
   }
 
   def descreverProblema() = {
@@ -52,6 +66,8 @@ object control {
     controleDescreverProblema.modificarProblema(problema)
   }
 
+
   def returnMainMenu() = view.view.run()
+  def returnMathMenu() = view.view.mathMode()
 
 }
