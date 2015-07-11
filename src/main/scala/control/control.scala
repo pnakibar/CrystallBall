@@ -1,22 +1,20 @@
 package control
 
-import java.io.{File, PrintWriter}
-
-import scala.io.StdIn
+import scala.collection.mutable.ListBuffer
 
 /**
  * Created by pnakibarf on 7/11/15.
  */
 object control {
-  var problema: Problema = new Problema(0,0, List[List[Float]]())
+  var problema: Problema = new Problema(0,0, ListBuffer[ListBuffer[Float]](), None)
 
   def doSomething(option: Int) ={
     option match {
       case 1 => descreverProblema()
       case 2 => carregarArquivo()
       case 3 => salvarArquivo()
-      case 4 => "undefined"
-      case 5 => "undefined"
+      case 4 => listarProblema()
+      case 5 => alterarProblema()
       case 6 => "undefined"
       case 7 => sys.exit(0)
     }
@@ -33,17 +31,8 @@ object control {
 
   def salvarArquivo() = {
     try {
-      //println("Digite o local e o nome do arquivo aonde deseja salvar:")
-      val filepath = StdIn.readLine()
-      val writer = new PrintWriter(new File(filepath))
-      problema.matrizDeUtilidade.foreach(l=>{
-        l.foreach(u=>writer.write(u.toString + " "))
-        writer.write("\n")
-      })
-
-      writer.close()
+      controleDescreverProblema.salvarProblema(problema)
       println("Salvo com sucesso!")
-
     }
     catch{
       case any => println("Não foi possível salvar!")
@@ -51,6 +40,16 @@ object control {
     finally{
       returnMainMenu()
     }
+  }
+
+  def listarProblema(): Unit ={
+    println("Problema na memória:")
+    controleDescreverProblema.imprimirProblema(problema)
+    println()
+  }
+
+  def alterarProblema() = {
+    controleDescreverProblema.modificarProblema(problema)
   }
 
   def returnMainMenu() = view.view.run()
