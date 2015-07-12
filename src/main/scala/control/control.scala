@@ -1,6 +1,7 @@
 package control
 
 import scala.collection.mutable.ListBuffer
+import scala.io.StdIn
 
 /**
  * Created by pnakibarf on 7/11/15.
@@ -22,12 +23,15 @@ object control {
   }
   def doSomethingMath(option: Int) ={
     option match {
-      case 1 => "undefined"
-      case 2 => "undefined"
-      case 3 => "undefined"
-      case 4 => "undefined"
-      case 5 => "undefined"
-      case 6 => "undefined"
+      case 1 => mathematics.laplace(problema)
+      case 2 => mathematics.maxMin(problema)
+      case 3 => mathematics.savage(problema)
+      case 4 => {
+              println("Digite o indice de otimismo");
+              mathematics.hurwicz(problema, StdIn.readInt())
+            }
+      case 5 => mathematics.maximizaçãoDoValorEsperado(problema)
+      case 6 => mathematics.perdaDaOportunidadeEsperada(problema)
       case 7 => "undefined"
       case 8 => "undefined"
       case 9 => returnMainMenu()
