@@ -23,17 +23,17 @@ object control {
   }
   def doSomethingMath(option: Int) ={
     option match {
-      case 1 => mathematics.laplace(problema)
-      case 2 => mathematics.maxMin(problema)
-      case 3 => mathematics.savage(problema)
-      case 4 => {
+      case 1 => println("O estado "+(mathematics.laplace(problema)+1)+" é o melhor utilizando LaPlace")
+      case 2 => println("O estado "+(mathematics.maxMin(problema)+1) +" é o melhor utilizando Maxmin")
+      case 3 => println("O estado "+(mathematics.savage(problema)+1) +" é o melhor utilizando Savage")
+      case 4 => println("O estado "+{
               println("Digite o indice de otimismo");
-              mathematics.hurwicz(problema, StdIn.readInt())
-            }
-      case 5 => mathematics.maximizaçãoDoValorEsperado(problema)
-      case 6 => mathematics.perdaDaOportunidadeEsperada(problema)
-      case 7 => "undefined"
-      case 8 => "undefined"
+              mathematics.hurwicz(problema, StdIn.readFloat())
+            }) + "utilizando Hurwic"
+      case 5 => println("Maximização do valor esperado: "+mathematics.maximizaçãoDoValorEsperado(problema).max)
+      case 6 => println("A perda da oportunidade esperada é: "+mathematics.perdaDaOportunidadeEsperada(problema))
+      case 7 => println("O valor da informação perfeita é: "+mathematics.valorDaInformaçãoPerfeita(problema))
+      case 8 => println("O valor da consultoria deve ser de: "+mathematics.valorConsultoria(problema))
       case 9 => returnMainMenu()
     }
     returnMathMenu()

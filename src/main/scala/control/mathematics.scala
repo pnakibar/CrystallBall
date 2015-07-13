@@ -43,14 +43,14 @@ object mathematics {
     max.indexOf(min)
   }
 
-  def maximizaçãoDoValorEsperado(problema: Problema): Float = {
+  def maximizaçãoDoValorEsperado(problema: Problema): ListBuffer[Float]= {
     val u = problema.matrizDeUtilidade
     val h = u.map(x=>1/u.length)
     u.map(x=>{
       x.map(y=>{
         h(x.indexOf(y))*y
       }).sum
-    }).max
+    })
   }
 
 
@@ -64,7 +64,13 @@ object mathematics {
     }).max
   }
 
-  def valorDaInformaçãoPerfeita(problema: Problema) = ???
+  def valorDaInformaçãoPerfeita(problema: Problema): Float = {
+    val u = problema.matrizDeUtilidade
+    val s = u.map(x => 1 / u.length)
+    val mve = maximizaçãoDoValorEsperado(problema)
+
+    mve.sum - mve.max
+  }
 
   def valorConsultoria(problema: Problema) = ???
 }
