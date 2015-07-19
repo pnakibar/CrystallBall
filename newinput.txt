@@ -1,0 +1,11 @@
+N Ações (código, Nome, descrição)
+3
+Comprar 100.000m de XK1
+Comprar 200.000m de XK1
+Comprar 300.000m de XK1
+M Estados da natureza (código, Nome , descrição, probabilidade a priori)
+3
+
+Matriz de utilidade (N,M) dos pares (ação, estado)
+
+Matriz de credibilidade (N,M) (opcional)
