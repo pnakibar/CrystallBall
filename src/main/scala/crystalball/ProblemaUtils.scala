@@ -1,3 +1,4 @@
+package crystalball
 import java.io.{File, PrintWriter}
 
 import scala.io.{Source, StdIn}
@@ -121,10 +122,10 @@ object FileReader{
       loop(numLinhas, file, List[List[Float]]())
     }
 
-    val matrizDeUtilidade = lerMatriz(numAcoes, file)
+    val matrizDeUtilidade = lerMatriz(numAcoes, file).reverse
 
     try{
-      val matrizDeCredibilidade = Option.apply(lerMatriz(numAcoes, file))
+      val matrizDeCredibilidade = Option.apply(lerMatriz(numAcoes, file).reverse)
       new Problema(estados, acoes, matrizDeUtilidade, matrizDeCredibilidade)
     } catch {
       case any => new Problema(estados, acoes, matrizDeUtilidade, None)

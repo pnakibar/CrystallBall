@@ -1,3 +1,4 @@
+package crystalball
 /**
  * Created by pnakibarf on 7/19/15.
  */
@@ -55,6 +56,8 @@ class Problema(
   }
 }
 
-case class Acao(val descricao: String)
+class Acao(val descricao: String){
+  override def toString(): String = descricao
+}
 
 case class EstadoNatureza(val descricao: String, val probabilidade: Float)

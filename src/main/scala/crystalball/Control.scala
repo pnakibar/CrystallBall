@@ -1,3 +1,5 @@
+package crystalball
+
 /**
  * Created by pnakibarf on 7/19/15.
  */
@@ -13,8 +15,9 @@ object Control {
   var problema = new Problema(List[EstadoNatureza](), List[Acao](), List[List[Float]](), None)
 
 
-  def carregar(filepath: String){
+  def carregar(filepath: String): Problema = {
     problema = FileReader.read(filepath)
+    problema
   }
 
   def salvar(filepath: String) = {

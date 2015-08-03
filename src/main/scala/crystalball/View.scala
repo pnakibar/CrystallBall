@@ -1,3 +1,4 @@
+package crystalball
 import scala.io.StdIn
 
 /**
@@ -5,7 +6,7 @@ import scala.io.StdIn
  */
 
 object MainMenu {
-  val mainMenu = "**********************************************************\n\nCRYSTAL BALL - SISTEMA DE APOIO A DECISÃO –\n\nO SEU ORÁCULO DE HOJE E SEMPRE\n\n**********************************************************\n\n1. Descrever um problema \n\n2. Carregar um problema \n\n3. Salvar um problema \n\n4. Listar um problema \n\n5. Alterar um problema ativo\n\n6. Obter Recomendação\n\n7. Sair\n\n**********************************************************"
+    val mainMenu = "**********************************************************\nCRYSTAL BALL - SISTEMA DE APOIO A DECISÃO –\nO SEU ORÁCULO DE HOJE E SEMPRE\n**********************************************************\n1. Descrever um problema \n2. Carregar um problema \n3. Salvar um problema \n4. Listar um problema \n5. Alterar um problema ativo\n6. Obter Recomendação\n7. Sair\n**********************************************************"
 
   def run(): Unit ={
     println(mainMenu)
@@ -99,8 +100,12 @@ object MainMenu {
 }
 
 object OperationsMenu{
-  val operationsMenu = "**********************************************************\n\nCRYSTAL BALL - SISTEMA DE APOIO A DECISÃO –\n\nDIGITE UMA OPÇÃO PARA APLICAR AO PROBLEMA\n\n**********************************************************\n\n1 – Laplace\n\n2 – MaxMin\n\n3 – Savage\n\n4 - Hurwikz\n\n5 – Valor médio esperado\n\n6 – Perda da oportunidade esperada\n\n7 – Determinar valor da Informação Perfeita\n\n8 – Estimar de acordo com previsão\n\n9 – Retornar ao menu principal\n\n**********************************************************"
-  val p = Control.problema
+  val operationsMenu = "**********************************************************\nCRYSTAL BALL - SISTEMA DE APOIO A DECISÃO –\nDIGITE UMA OPÇÃO PARA APLICAR AO PROBLEMA\n**********************************************************\n1 – Laplace\n2 – MaxMin\n3 – Savage\n4 - Hurwikz\n5 – Valor médio esperado\n6 – Perda da oportunidade esperada\n7 – Determinar valor da Informação Perfeita\n8 – Estimar de acordo com previsão\n9 – Retornar ao menu principal\n**********************************************************"
+  var p: Problema = Control.problema
+  val previsoes = List("baixa", "media", "alta").zipWithIndex
+  def getPrevisao(prev: String):Int = {
+    previsoes.filter(_._1 == prev).head._2
+  }
 
   def laplace(): Unit = {
     println("Melhor opção é "+p.acoes(Operations.laplace(p)))
@@ -133,10 +138,16 @@ object OperationsMenu{
   }
 
   def valorDaConsultoria(): Unit = {
-    println("Valro da consultoria: "+Operations.valorDaConsultoria(p))
+    val prev = getPrevisao(StdIn.readLine("Digite a previsao (baixa/media/alta"))
+    println("De acordo com a estimativa de consultoria "+previsoes(prev)._1)
+    Operations.valorDaConsultoria(p, prev).zipWithIndex.foreach(x=>{
+      println("Para a ação "+ p.acoes(x._2).descricao + " temos o MVE = " + x._1)
+    })
+
   }
 
   def run(): Unit ={
+    p = Control.problema
     println(operationsMenu)
     println("Digite uma opção:")
     val option = StdIn.readInt()
@@ -149,7 +160,7 @@ object OperationsMenu{
       case 5 => valorMedioEsperado()
       case 6 => perdaDaOportunidadeEsperada()
       case 7 => valorInformacaoPerfeita()
-      case 8 => valorDaConsultoria()
+      case 8 => { try {valorDaConsultoria()} catch {case any=>println(any)}}
       case 9 => MainMenu.run()
     }
 
